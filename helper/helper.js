@@ -89,7 +89,7 @@ export const sendVerificationLink = function (email, authCode) {
 		<body>
 		<p> Greetings from TCE-LMS <p>
 		<p> Here is your verification link: 
-		${constants.HOST.concat("/api/verify?","auth=",authCode)}
+		${constants.HOST.concat(":",constants.SERVER_PORT,"/api/verify/student?","auth=",authCode)}
 
 		<p>
 		Greetings<br>

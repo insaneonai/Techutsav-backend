@@ -11,6 +11,7 @@ import { standardResponse,
         generateOTP, 
         sendOTP,
         authEmailHasher} from "../helper/helper.js";
+import { FormSubmissionModel } from "../models/FormSubmission.js";
 
 export const signupStudent = async (req, res) => {
     try{
@@ -162,8 +163,17 @@ export const loginStudent = async (req, res, next) => {
                 }
                 const LoginToken = generateLoginToken(existingUser.accessToken, constants.loginSecret);
                 const AuthEmail = authEmailHasher(email);
-                res.cookie("Authentication",{LoginToken: LoginToken},{expires: new Date(Date.now() + 86400000), httpOnly:true, secure:true});
-                res.cookie("Authemail", AuthEmail, {expires: new Date(Date.now() + 86400000), httpOnly:true, secure:true});
+                res.cookie("Authentication", { LoginToken: LoginToken }, {
+                    expires: new Date(Date.now() + 86400000),
+                    httpOnly: true,
+                    path: '/',
+                  });
+                  
+                  res.cookie("Authemail", AuthEmail, {
+                    expires: new Date(Date.now() + 86400000),
+                    httpOnly: true,
+                    path: '/',
+                  });
                 const {_id, HashEmail, password, accessToken, authCode, isVerified, OTP, createdAt, updatedAt, __v, ...userObject} = existingUser.toJSON();
                 return res
                 .status(200)
@@ -477,5 +487,21 @@ export const AddTodo = async (req, res) => {
         return res
         .status(500)
         .json(standardResponse(500, "Error Adding Todo"));
+    }
+}
+
+export const submitForm = async (req, res) => {
+    try{
+        await FormSubmissionModel.create(req.body);
+        const user = await StudentModel.findOne({"email": req.body.email});
+        user.formSubmission = true;
+        await user.save();
+        return res.status(200).json(standardResponse(200, "Form Submitted Successfully"));
+    }
+    catch(error){
+        console.log(error);
+        return res
+        .status(500)
+        .json(standardResponse(500, "Error Submitting Form"));
     }
 }

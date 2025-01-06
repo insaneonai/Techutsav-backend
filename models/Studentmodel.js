@@ -24,6 +24,7 @@ const userSchema = new Schema({
     isVerified: {type: Boolean, default: false},
     OverallPoints: {type: Number, default: 0},
     Todo: [{type: String}, {unique: true}],
+    formSubmission: {type: Boolean, default: false},
     OTP: {type: Number}
 },{timestamps: true})
 

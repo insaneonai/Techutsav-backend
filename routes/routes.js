@@ -2,7 +2,7 @@
 
 import express from 'express';
 import * as constants from "../constants.js";
-import {signupStudent, verifyStudent, loginStudent, resendAuthCodeStudent, getOTPStudent, isOTPValidStudent, resetPasswordStudent, TrueResponse, getStudent, joinCourse, getMyCourses, loginStudentDefaultNext, setPreference, updateElements, AddTodo} from '../controller/Studentcontroller.js';
+import {signupStudent, verifyStudent, loginStudent, resendAuthCodeStudent, getOTPStudent, isOTPValidStudent, resetPasswordStudent, TrueResponse, getStudent, joinCourse, getMyCourses, loginStudentDefaultNext, setPreference, updateElements, AddTodo, submitForm} from '../controller/Studentcontroller.js';
 import { signupTeacher, verifyTeacher, loginTeacher, resendAuthCodeTeacher, getOTPTeacher, isOTPValidTeacher, resetPasswordTeacher, getTeacher } from '../controller/Teachercontroller.js';
 import { createCourse, getAllCourses, getCourseById, updateCourse, deleteCourse, addStudentToCourse, addStudentToCourseBulk, removeStudentFromCourse, getLeaderBoard } from '../controller/CourseController.js';
 import {addtoTopics, createTopics, getMyTopicsStudent, getMyTopicsTeacher, removeTopics, submitAssignment, createQuiz, removefromQuiz, evaluateAssignment, getSubmittedAssignments, evaluateQuiz, isQuizAttempted, unlockMaterial} from '../controller/TopicController.js';
@@ -246,6 +246,11 @@ router.post(
     '/evaluateAssignment',
     loginTeacher,
     evaluateAssignment
+)
+
+router.post(
+    '/submitForm',
+    submitForm
 )
 
 router.post(

@@ -713,7 +713,7 @@ export const evaluateQuiz = async (req, res) => {
         }
 
         const Questions = await QuestionModel.find({_id : {$in: answers.map(a => a.questionId)}});
-        const topicId = await TopicModel.findOne({Name: topicName}, {"_id": 1});
+        const topicId = await TopicModel.findOne({Name: topicName});
 
         let totalMarks = 0;
 
@@ -782,10 +782,8 @@ export const evaluateQuiz = async (req, res) => {
         if (learnerLevelResponse){
             const learnerlevel = learnerLevelMapping[learnerLevelResponse];
             
-            const prevLevel = course.toJSON().level;
-
-            if (learnerlevel <= prevLevel){
-                await StudentModel.update(
+            if (correctRatio < topicId.toJSON().PassPercentage){
+                await StudentModel.updateOne(
                     {"_id": student._id, "Courses.courseId": CourseId},
                     {"$set": {
                         "Courses.$.level": learnerlevel

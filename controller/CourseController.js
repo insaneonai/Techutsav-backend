@@ -271,7 +271,39 @@ export const getLeaderBoard = async (req, res) => {
             .json(standardResponse(200, "Leaderboard Found", leaderboard));
         }
         else{
-            const leaderboard = await StudentModel.find({"Courses.courseId": CourseId, "Courses.level": parseInt(level)}).sort({"Courses.points": -1}).select("Name Courses.points -_id");
+            const leaderboard = await StudentModel.aggregate([
+                {
+                  $match: {
+                    "Courses.courseId": CourseId,
+                    "Courses.level": parseInt(level)
+                  }
+                },
+                {
+                  $project: {
+                    Name: 1, // Include the student's name
+                    points: {
+                      $filter: {
+                        input: "$Courses",
+                        as: "course",
+                        cond: { $eq: ["$$course.courseId", CourseId] } // Filter courses by courseId
+                      }
+                    }
+                  }
+                },
+                {
+                  $unwind: "$points" // Unwind the filtered points array
+                },
+                {
+                  $sort: { "points.points": -1 } // Sort by points in descending order
+                },
+                {
+                  $project: {
+                    Name: 1,
+                    "points.points": 1 // Select only the name and the points
+                  }
+                }
+              ]);
+              
             return res
             .status(200)
             .json(standardResponse(200, "Leaderboard Found", leaderboard));
