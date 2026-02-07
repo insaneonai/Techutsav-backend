@@ -1,7 +1,6 @@
 import { UserModel } from "../models/Usermodel.js";
 import { CollegeModel } from "../models/CollegeModel.js";
 import { compare } from "bcrypt";
-import * as constants from "../constants.js";
 import {
   standardResponse,
   generateAuthToken,
@@ -74,7 +73,7 @@ export const signupUser = async (req, res) => {
 
     newUser.emailAuthCode = generateAuthToken(
       { id: newUser._id },
-      constants.authSecret,
+      process.env.authSecret,
     );
 
     await newUser.save();
@@ -147,7 +146,7 @@ export const resendEmail = async (req, res) => {
     if (!existingUser.isEmailVerified) {
       existingUser.emailAuthCode = generateAuthToken(
         { id: existingUser._id },
-        constants.authSecret,
+        process.env.authSecret,
       );
       await existingUser.save();
       return res
@@ -227,7 +226,7 @@ export const loginUser = async (req, res, next) => {
         };
         const LoginToken = generateLoginToken(
           userPayload,
-          constants.loginSecret,
+          process.env.loginSecret,
         );
         res.cookie(
           "Authentication",
@@ -257,7 +256,7 @@ export const loginUser = async (req, res, next) => {
 
       const { Authentication } = req.cookies;
       const LoginToken = Authentication.LoginToken;
-      const decodedToken = VerifyAuthToken(LoginToken, constants.loginSecret);
+      const decodedToken = VerifyAuthToken(LoginToken, process.env.loginSecret);
       if (!decodedToken) {
         return res
           .status(403)
