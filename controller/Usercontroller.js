@@ -218,8 +218,15 @@ export const loginUser = async (req, res, next) => {
               ),
             );
         }
+        const userPayload = {
+          userId: existingUser._id,
+          email: existingUser.email,
+          name: existingUser.name,
+          role: existingUser.role,
+          collegeId: existingUser.collegeId,
+        };
         const LoginToken = generateLoginToken(
-          existingUser.accessToken,
+          userPayload,
           constants.loginSecret,
         );
         res.cookie(
@@ -250,8 +257,8 @@ export const loginUser = async (req, res, next) => {
 
       const { Authentication } = req.cookies;
       const LoginToken = Authentication.LoginToken;
-      const isLoginValid = VerifyAuthToken(LoginToken, constants.loginSecret);
-      if (!isLoginValid) {
+      const decodedToken = VerifyAuthToken(LoginToken, constants.loginSecret);
+      if (!decodedToken) {
         return res
           .status(403)
           .json(
@@ -263,8 +270,10 @@ export const loginUser = async (req, res, next) => {
           );
       }
 
-      // save user details in req.user for further use
-      req.user = existingUser;
+      console.log("Decoded Token: ", decodedToken); // Debugging line
+
+      // Use decoded token payload directly
+      req.user = decodedToken;
 
       next();
     }
@@ -284,16 +293,7 @@ export const loginUser = async (req, res, next) => {
 export const loginUserDefaultNext = async (req, res) => {
   try {
     // This function simply returns logged in user details, it is used as a default next function for loginUser middleware
-    const existingUser = req.user;
-    const {
-      password,
-      emailAuthCode,
-      isVerified,
-      createdAt,
-      updatedAt,
-      __v,
-      ...userObject
-    } = existingUser.toJSON();
+    const userObject = req.user;
 
     return res
       .status(200)

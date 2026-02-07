@@ -27,4 +27,8 @@ router.post("/forgot-password", forgotPassword);
 
 router.post("/reset-password", resetPassword);
 
+router.get("/proxy-payment", loginUser, (req, res) => {
+  res.redirect(`https://eazypay.icicibank.com/homePage`);
+});
+
 export default router;
