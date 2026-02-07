@@ -1,0 +1,3119 @@
+{
+	"info": {
+		"_postman_id": "43a6e2ee-1159-4d06-aa12-5b95621f7116",
+		"name": "LMS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "19839676"
+	},
+	"item": [
+		{
+			"name": "api/signup/student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\",\r\n    \"name\": \"Jeyadevan\",\r\n    \"regno\": \"917723s012\",\r\n    \"department\": \"data science\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/signup/student"
+			},
+			"response": [
+				{
+					"name": "Signup Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@sd\",\r\n    \"name\": \"Jeyadevan\",\r\n    \"regno\": \"917723s012\",\r\n    \"department\": \"data science\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/signup/student"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"53-T54Fie1HywevY+gQjby5nsBxdvI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 09:55:02 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Confirmation Mail Sent to: xohesa4490@avastu.com\",\n    \"data\": null\n}"
+				},
+				{
+					"name": "Auth Code Resend Without Verification",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\",\r\n    \"name\": \"Jeyadevan\",\r\n    \"regno\": \"917723s012\",\r\n    \"department\": \"data science\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/signup/student"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "105"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"69-DWoF6qguzQH61a6OurboLjnRoto\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 09:55:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Authentication code successfully resent. Please check your email for the new code.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/verify/student",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "Invalid Auth Verification",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/verify/student?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTZmYjc2OGI4NDZhMDhkZWNjNjI2ZCIsImlhdCI6MTcxNjk3NjUwMn0.4LtPs9Fn5CuskMIA5rXq4QC5_XFTchAou79Fr5b1Glk",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"verify",
+								"student"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTZmYjc2OGI4NDZhMDhkZWNjNjI2ZCIsImlhdCI6MTcxNjk3NjUwMn0.4LtPs9Fn5CuskMIA5rXq4QC5_XFTchAou79Fr5b1Glk"
+								}
+							]
+						}
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "46"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2e-OzSxtlE73AFBFr0S8lt5IFjGqZA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 09:58:35 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 400,\n    \"msg\": \"Invalid Authentication.\"\n}"
+				},
+				{
+					"name": "Verification Successful",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/verify/student?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTcwNmM3OGI4NDZhMDhkZWNjNjI3YyIsImlhdCI6MTcxNjk3OTQyOH0.GAieC5OuO-j0TrqxPyDJVgkLr8iMkGcirIUKVvo4ZZY",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"verify",
+								"student"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NTcwNmM3OGI4NDZhMDhkZWNjNjI3YyIsImlhdCI6MTcxNjk3OTQyOH0.GAieC5OuO-j0TrqxPyDJVgkLr8iMkGcirIUKVvo4ZZY"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-6e6mnAVcGEJ9WdQKBuXxTt/Qbio\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 10:00:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Account verified successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/login/student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/login/student/"
+			},
+			"response": [
+				{
+					"name": "Not Verified",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/login/student/"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5b-6Zjyhopg7Md5Mz/LMivqOGqFNoI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:28:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 403,\n    \"msg\": \"User not verified. Please sign up or verify your account to proceed.\"\n}"
+				},
+				{
+					"name": "Successful Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/login/student/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "Authentication=j%3A%7B%22LoginToken%22%3A%22eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleGlzdGluZ1VzZXIiOnsiX2lkIjoiNjY1NzEwZWFmMjEzYzRmZTg1ZDViYzk0IiwiTmFtZSI6IkpleWFkZXZhbiIsInJlZ25vIjoiOTE3NzIzczAxMiIsImRlcGFydG1lbnQiOiJkYXRhIHNjaWVuY2UiLCJ0b3RhbENvaW5zIjowLCJoZWFydHMiOjAsInRvdGFsS2V5IjowLCJlbWFpbCI6InhvaGVzYTQ0OTBAYXZhc3R1LmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDd6Vy5EUm1IMm5sVkdHQ3ZCZUtvWGViL01zckVjd3d4dlhuLmJUWUVzdVdWWE03UmRiSk8yIiwiYWNjZXNzVG9rZW4iOiIkMmIkMTAkL2hhZi92QmxJYnJWNHlvd0IwZmRlZWhZc1JvRUlETk9ZNmYxVDhBSTUvOEhwdVdCbTZSMi4iLCJhdXRoQ29kZSI6ImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwWkNJNklqWTJOVGN4TUdWaFpqSXhNMk0wWm1VNE5XUTFZbU01TkNJc0ltbGhkQ0k2TVRjeE5qazRNVGs1TkgwLjYwNnhNaGpTbGkyb2JqOUhXRnEwcHlFZEFSZ1FUV1pPTGJyTG9jbnR5dDgiLCJpc1ZlcmlmaWVkIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTI5VDExOjI2OjM0LjUzNVoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTI5VDExOjI5OjA5LjAwM1oiLCJfX3YiOjB9LCJpYXQiOjE3MTY5ODIxNTgsImV4cCI6MTcxNzA2ODU1OH0.vrgzZjL_ygPZo4S2kEul-YFLXoRC8ncIwnKUayBCQnw%22%7D; Path=/; Expires=Thu, 30 May 2024 11:29:18 GMT; HttpOnly; Secure"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-AtyMpJM+neNKaXkF0Rv91HwBGc8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:29:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Logged In successfully\"\n}"
+				},
+				{
+					"name": "GetStudent",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/getStudent"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "181"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"b5-d/W1znkIVZ6XGZPfusTurXMfXpA\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 05 Jun 2024 06:23:53 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"User Found\",\n    \"data\": {\n        \"Name\": \"Jeyadevan\",\n        \"regno\": \"917723s012\",\n        \"department\": \"data science\",\n        \"totalCoins\": 0,\n        \"hearts\": 0,\n        \"totalKey\": 0,\n        \"email\": \"xohesa4490@avastu.com\"\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api/getOTP/student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/getOTP/student"
+			},
+			"response": [
+				{
+					"name": "Get OTP",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/getOTP/student"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-qzmrCA2cnAypFeyKo3gQ3+D081g\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:33:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"OTP sent Successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/isOTPValid/student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 149621\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/isOTPValid/student"
+			},
+			"response": [
+				{
+					"name": "Valid OTP",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 149621\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/isOTPValid/student"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-I3d7vnOfF2BQgJ4ZU01MNis04CY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:36:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"OTP is Valid\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/resetPassword/student",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 149621,\r\n    \"newPassword\": \"9003752752@Jd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/resetPassword/student"
+			},
+			"response": [
+				{
+					"name": "Password Reset",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 149621,\r\n    \"newPassword\": \"9003752752@Jd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/resetPassword/student"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"32-jOH0hhky8EXmeAdX90kcdDLczGE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:45:38 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Password reset Successfull.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/signup/teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\",\r\n    \"name\": \"Jeyadevan\",\r\n    \"department\": \"data science\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/signup/teacher"
+			},
+			"response": [
+				{
+					"name": "Success Signup",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\",\r\n    \"name\": \"Jeyadevan\",\r\n    \"department\": \"data science\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/signup/teacher"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"53-T54Fie1HywevY+gQjby5nsBxdvI\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 08:07:41 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Confirmation Mail Sent to: xohesa4490@avastu.com\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "/api/verify/teacher",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/verify/teacher?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NWVjYjRjZGU2NjVkNjg4YWQ3Nzg3OSIsImlhdCI6MTcxNzQ4ODQ2MX0._B5y550sqoNvss-PYajV83HUd4q3mL3aVJudH-iOT3Q",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"verify",
+						"teacher"
+					],
+					"query": [
+						{
+							"key": "auth",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NWVjYjRjZGU2NjVkNjg4YWQ3Nzg3OSIsImlhdCI6MTcxNzQ4ODQ2MX0._B5y550sqoNvss-PYajV83HUd4q3mL3aVJudH-iOT3Q"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Verification Successful",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/api/verify/teacher?auth=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NWVjYjRjZGU2NjVkNjg4YWQ3Nzg3OSIsImlhdCI6MTcxNzQ4ODQ2MX0._B5y550sqoNvss-PYajV83HUd4q3mL3aVJudH-iOT3Q",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"verify",
+								"teacher"
+							],
+							"query": [
+								{
+									"key": "auth",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY2NWVjYjRjZGU2NjVkNjg4YWQ3Nzg3OSIsImlhdCI6MTcxNzQ4ODQ2MX0._B5y550sqoNvss-PYajV83HUd4q3mL3aVJudH-iOT3Q"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-6e6mnAVcGEJ9WdQKBuXxTt/Qbio\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 08:09:47 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Account verified successfully\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/login/teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/login/teacher"
+			},
+			"response": [
+				{
+					"name": "Not Verified",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/login/student/"
+					},
+					"status": "Bad Request",
+					"code": 400,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "91"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"5b-6Zjyhopg7Md5Mz/LMivqOGqFNoI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:28:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 403,\n    \"msg\": \"User not verified. Please sign up or verify your account to proceed.\"\n}"
+				},
+				{
+					"name": "Successful Login",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"password\": \"123456789@jd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/login/teacher/"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Set-Cookie",
+							"value": "Authentication=j%3A%7B%22LoginToken%22%3A%22eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleGlzdGluZ1VzZXIiOnsiX2lkIjoiNjY1NzEwZWFmMjEzYzRmZTg1ZDViYzk0IiwiTmFtZSI6IkpleWFkZXZhbiIsInJlZ25vIjoiOTE3NzIzczAxMiIsImRlcGFydG1lbnQiOiJkYXRhIHNjaWVuY2UiLCJ0b3RhbENvaW5zIjowLCJoZWFydHMiOjAsInRvdGFsS2V5IjowLCJlbWFpbCI6InhvaGVzYTQ0OTBAYXZhc3R1LmNvbSIsInBhc3N3b3JkIjoiJDJiJDEwJDd6Vy5EUm1IMm5sVkdHQ3ZCZUtvWGViL01zckVjd3d4dlhuLmJUWUVzdVdWWE03UmRiSk8yIiwiYWNjZXNzVG9rZW4iOiIkMmIkMTAkL2hhZi92QmxJYnJWNHlvd0IwZmRlZWhZc1JvRUlETk9ZNmYxVDhBSTUvOEhwdVdCbTZSMi4iLCJhdXRoQ29kZSI6ImV5SmhiR2NpT2lKSVV6STFOaUlzSW5SNWNDSTZJa3BYVkNKOS5leUpwWkNJNklqWTJOVGN4TUdWaFpqSXhNMk0wWm1VNE5XUTFZbU01TkNJc0ltbGhkQ0k2TVRjeE5qazRNVGs1TkgwLjYwNnhNaGpTbGkyb2JqOUhXRnEwcHlFZEFSZ1FUV1pPTGJyTG9jbnR5dDgiLCJpc1ZlcmlmaWVkIjp0cnVlLCJjcmVhdGVkQXQiOiIyMDI0LTA1LTI5VDExOjI2OjM0LjUzNVoiLCJ1cGRhdGVkQXQiOiIyMDI0LTA1LTI5VDExOjI5OjA5LjAwM1oiLCJfX3YiOjB9LCJpYXQiOjE3MTY5ODIxNTgsImV4cCI6MTcxNzA2ODU1OH0.vrgzZjL_ygPZo4S2kEul-YFLXoRC8ncIwnKUayBCQnw%22%7D; Path=/; Expires=Thu, 30 May 2024 11:29:18 GMT; HttpOnly; Secure"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-AtyMpJM+neNKaXkF0Rv91HwBGc8\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:29:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Logged In successfully\"\n}"
+				},
+				{
+					"name": "Get Teacher",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/getTeacher"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "168"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"a8-7uvhnxkwJl7kZPHvAiWWuU1MY7I\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 05 Jun 2024 07:12:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"User Found\",\n    \"data\": {\n        \"Name\": \"Jeyadevan\",\n        \"Department\": \"data science\",\n        \"Courses\": [\n            \"665eef9a7eaee5a0cfc7de60\"\n        ],\n        \"email\": \"xohesa4490@avastu.com\",\n        \"__v\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api/getOTP/teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/getOTP/teacher"
+			},
+			"response": [
+				{
+					"name": "Get OTP",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/getOTP/student"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "45"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2d-qzmrCA2cnAypFeyKo3gQ3+D081g\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:33:22 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"OTP sent Successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/isOTPValid/teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 485338\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/isOTPValid/teacher"
+			},
+			"response": [
+				{
+					"name": "Valid OTP",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 149621\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/isOTPValid/teacher"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "35"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"23-I3d7vnOfF2BQgJ4ZU01MNis04CY\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 29 May 2024 11:36:49 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"OTP is Valid\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/resetPassword/teacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 485338,\r\n    \"newPassword\": \"9003752752@Jd\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/resetPassword/teacher"
+			},
+			"response": [
+				{
+					"name": "Password Reset",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"xohesa4490@avastu.com\",\r\n    \"OTP\": 485338,\r\n    \"newPassword\": \"9003752752@Jd\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/resetPassword/teacher"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "50"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"32-jOH0hhky8EXmeAdX90kcdDLczGE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 09:00:28 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Password reset Successfull.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/createCourse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Python Programming\",\r\n    \"department\": \"data science\",\r\n    \"handle\": \"Jeyadevan\",\r\n    \"description\": \"Python programming course\",\r\n    \"courseId\": \"23DS030\",\r\n    \"user\": {\r\n        \"Name\": \"Jeyadevan\",\r\n        \"email\": \"xohesa4490@avastu.com\",\r\n        \"Department\": \"data science\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/createCourse"
+			},
+			"response": [
+				{
+					"name": "Successful Creation",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Python Programming\",\r\n    \"department\": \"data science\",\r\n    \"handle\": \"Jeyadevan\",\r\n    \"description\": \"Python programming course\",\r\n    \"courseId\": \"23DS030\",\r\n    \"user\": {\r\n        \"Name\": \"Jeyadevan\",\r\n        \"email\": \"xohesa4490@avastu.com\",\r\n        \"Department\": \"data science\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/createCourse"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14a-piqH8QHu8iV3s9n9SpTj4BFeVpQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 10:42:34 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Course Created Successfully\",\n    \"data\": {\n        \"Name\": \"Python Programming\",\n        \"Department\": \"data science\",\n        \"Handle\": \"Jeyadevan\",\n        \"Description\": \"Python programming course\",\n        \"Topics\": [],\n        \"CourseId\": \"23DS030\",\n        \"_id\": \"665eef9a7eaee5a0cfc7de60\",\n        \"createdAt\": \"2024-06-04T10:42:34.637Z\",\n        \"updatedAt\": \"2024-06-04T10:42:34.637Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api/getAllCourses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"user\": {\r\n        \"Name\": \"Jeyadevan\",\r\n        \"email\": \"xohesa4490@avastu.com\",\r\n        \"Department\": \"data science\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/getAllCourses"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"user\": {\r\n        \"Name\": \"Jeyadevan\",\r\n        \"email\": \"xohesa4490@avastu.com\",\r\n        \"Department\": \"data science\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/getAllCourses"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "318"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13e-dYodN4a6u2RZjLISNWdI0JZfTmE\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 04 Jun 2024 15:26:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Courses Found\",\n    \"data\": [\n        {\n            \"_id\": \"665eef9a7eaee5a0cfc7de60\",\n            \"Name\": \"Python Programming\",\n            \"Department\": \"data science\",\n            \"Handle\": \"Jeyadevan\",\n            \"Description\": \"Python programming course\",\n            \"Topics\": [],\n            \"CourseId\": \"23DS030\",\n            \"createdAt\": \"2024-06-04T10:42:34.637Z\",\n            \"updatedAt\": \"2024-06-04T10:42:34.637Z\",\n            \"__v\": 0\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "api/getCourseById",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS030\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/getCourseById"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/updateCourse"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "315"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"13b-Ls+M07KRkeqXk94T5ma4dtb1CCI\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 05 Jun 2024 07:01:40 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Course Found\",\n    \"data\": {\n        \"_id\": \"665eef9a7eaee5a0cfc7de60\",\n        \"Name\": \"Python Programming\",\n        \"Department\": \"data science\",\n        \"Handle\": \"Jeyadevan\",\n        \"Description\": \"Python programming course\",\n        \"Topics\": [],\n        \"CourseId\": \"23DS030\",\n        \"createdAt\": \"2024-06-04T10:42:34.637Z\",\n        \"updatedAt\": \"2024-06-04T10:42:34.637Z\",\n        \"__v\": 0\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api/DeleteCourse",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "api/UpdateCourse",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"oldCourseId\":\"23DS030\", \r\n\"newCourseId\":\"23DS031\", \r\n\"name\": \"Python Programming\",\r\n\"department\": \"data science\", \r\n\"handle\": \"Jeyadevan\", \r\n\"description\": \"Python programming course\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/updateCourse"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"oldCourseId\":\"23DS030\", \r\n\"newCourseId\":\"23DS031\", \r\n\"name\": \"Python Programming\",\r\n\"department\": \"data science\", \r\n\"handle\": \"Jeyadevan\", \r\n\"description\": \"Python programming course\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/updateCourse"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "330"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"14a-sUN9ib6mGVtyQfnK7qjU+GGuPxc\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 05 Jun 2024 07:54:31 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Course Updated Successfully\",\n    \"data\": {\n        \"_id\": \"665eef9a7eaee5a0cfc7de60\",\n        \"Name\": \"Python Programming\",\n        \"Department\": \"data science\",\n        \"Handle\": \"Jeyadevan\",\n        \"Description\": \"Python programming course\",\n        \"Topics\": [],\n        \"CourseId\": \"23DS031\",\n        \"createdAt\": \"2024-06-04T10:42:34.637Z\",\n        \"updatedAt\": \"2024-06-05T07:54:31.285Z\",\n        \"__v\": 0\n    }\n}"
+				},
+				{
+					"name": "Failiure",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"oldCourseId\":\"23DS030\", \r\n\"newCourseId\":\"23DS031\", \r\n\"name\": \"Python Programming\",\r\n\"department\": \"data science\", \r\n\"handle\": \"Jeyadevan\", \r\n\"description\": \"Python programming course\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/updateCourse"
+					},
+					"status": "Forbidden",
+					"code": 403,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "http://localhost:3000"
+						},
+						{
+							"key": "Vary",
+							"value": "Origin"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "63"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3f-1/fdo/SvjNemiuxYJg8gzlxQIlE\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 05 Jun 2024 07:55:12 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 403,\n    \"msg\": \"You cant modify this Course.\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "api/addStudentsToCourse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"studentEmail\": \"xohesa4490@avastu.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/addStudentsToCourse"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"studentEmail\": \"xohesa4490@avastu.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/addStudentsToCourse"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "369"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"171-HPMJsA5qB1b0U1o4lQcvKHIfHRc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 09:43:55 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Student Added Successfully\",\n    \"data\": {\n        \"Students\": [\n            \"66603b79dd4f9d15c12a629d\"\n        ],\n        \"_id\": \"66603d1bdd4f9d15c12a62a8\",\n        \"Name\": \"Python Programming\",\n        \"Department\": \"data science\",\n        \"Handle\": \"Jeyadevan\",\n        \"Description\": \"Python programming course\",\n        \"Topics\": [],\n        \"CourseId\": \"23DS031\",\n        \"createdAt\": \"2024-06-05T10:25:31.211Z\",\n        \"updatedAt\": \"2024-06-06T09:43:55.811Z\",\n        \"__v\": 1\n    }\n}"
+				},
+				{
+					"name": "Invalid Student",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"studentEmail\": \"jeyadevan@student.tce.edu\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/addStudentsToCourse"
+					},
+					"status": "Not Found",
+					"code": 404,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "52"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"34-oXWmJbmo4AUgCQnKT4zrw1NyuCw\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 09:55:59 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 404,\n    \"msg\": \"Student Not Found\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "api/addStudentToCourseBulk",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"studentEmails\": [\"xohesa4490@avastu.com\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/addStudentsToCourseBulk"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"studentEmails\": [\"xohesa4490@avastu.com\"]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/addStudentsToCourseBulk"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "83"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"53-bGjPXpE0R0atycGN4zratjizsEc\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 10:01:13 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Students Added Successfully\",\n    \"data\": [\n        \"xohesa4490@avastu.com\"\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "api/RemoveStudentFromCourse",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"studentEmail\": \"xohesa4490@avastu.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/removeStudentFromCourse"
+			},
+			"response": [
+				{
+					"name": "RemoveStudentFromCourse",
+					"originalRequest": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"studentEmail\": \"xohesa4490@avastu.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/removeStudentFromCourse"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "345"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"159-LfuMPyfT7RQLb9o45+DAWSjxNw8\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 10:14:06 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Student Removed Successfully\",\n    \"data\": {\n        \"_id\": \"66603d1bdd4f9d15c12a62a8\",\n        \"Name\": \"Python Programming\",\n        \"Department\": \"data science\",\n        \"Handle\": \"Jeyadevan\",\n        \"Description\": \"Python programming course\",\n        \"Topics\": [],\n        \"CourseId\": \"23DS031\",\n        \"createdAt\": \"2024-06-05T10:25:31.211Z\",\n        \"updatedAt\": \"2024-06-06T10:14:06.288Z\",\n        \"__v\": 3,\n        \"Students\": []\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api/joinCourse",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS031\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/joinCourse"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\": \"23DS031\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/joinCourse"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "60"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"3c-D5E/p+rTP95Z6yB28cbEy9XmW7Q\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 06 Jun 2024 11:00:19 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Student added to course successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "api/GetMyCourses",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/getMyCourses"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/getMyCourses"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "281"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"119-M+gDaccTfsvkSf2TUijwvg8VMs8\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Jun 2024 05:29:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Courses Found\",\n    \"data\": {\n        \"Courses\": [\n            {\n                \"id\": \"66603d1bdd4f9d15c12a62a8\",\n                \"points\": 0,\n                \"level\": 0\n            }\n        ],\n        \"CourseInfo\": [\n            {\n                \"Name\": \"Python Programming\",\n                \"Department\": \"data science\",\n                \"Handle\": \"Jeyadevan\",\n                \"Description\": \"Python programming course\",\n                \"Topics\": [],\n                \"CourseId\": \"23DS031\"\n            }\n        ]\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "Upload file",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/work-life-balance.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:8080/api/upload"
+			},
+			"response": [
+				{
+					"name": "Successfull",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/Jeyadevan/Videos/Captures/Demo Prototype Video.mp4"
+								}
+							]
+						},
+						"url": "http://localhost:8080/api/upload"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "26"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"1a-n1aZHvKQsXCZRm7SaL88i3Svtzg\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 08 Jun 2024 15:32:51 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "File uploaded successfully"
+				}
+			]
+		},
+		{
+			"name": "api/CreateTopics",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Name",
+							"value": "Week 1",
+							"type": "text"
+						},
+						{
+							"key": "courseId",
+							"value": "23DS031",
+							"type": "text"
+						},
+						{
+							"key": "materialDifficulty",
+							"value": "Average",
+							"type": "text"
+						},
+						{
+							"key": "assignmentDifficulty",
+							"value": "Average",
+							"type": "text"
+						},
+						{
+							"key": "Assignment",
+							"type": "file",
+							"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/pexels-nataliya-vaitkevich-6532373 (1).jpg"
+						},
+						{
+							"key": "Material",
+							"type": "file",
+							"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/work-life-balance.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/createTopics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"createTopics"
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "Week1",
+							"disabled": true
+						},
+						{
+							"key": "courseId",
+							"value": "23DS031",
+							"disabled": true
+						},
+						{
+							"key": "materialDifficulty",
+							"value": "Medium",
+							"disabled": true
+						},
+						{
+							"key": "assignmentDifficulty",
+							"value": "Medium",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Week 1",
+									"type": "text"
+								},
+								{
+									"key": "courseId",
+									"value": "23DS031",
+									"type": "text"
+								},
+								{
+									"key": "materialDifficulty",
+									"value": "Average",
+									"type": "text"
+								},
+								{
+									"key": "assignmentDifficulty",
+									"value": "Average",
+									"type": "text"
+								},
+								{
+									"key": "Assignment",
+									"type": "file",
+									"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/pexels-nataliya-vaitkevich-6532373 (1).jpg"
+								},
+								{
+									"key": "Material",
+									"type": "file",
+									"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/work-life-balance.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/createTopics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"createTopics"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Week1",
+									"disabled": true
+								},
+								{
+									"key": "courseId",
+									"value": "23DS031",
+									"disabled": true
+								},
+								{
+									"key": "materialDifficulty",
+									"value": "Medium",
+									"disabled": true
+								},
+								{
+									"key": "assignmentDifficulty",
+									"value": "Medium",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-LGU6PC0pfK9ZqMKknoX6dWXKcbE\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 10 Jun 2024 08:23:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Topic created Week 1\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "api/AddToTopics",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "Name",
+							"value": "Week 1",
+							"type": "text"
+						},
+						{
+							"key": "courseId",
+							"value": "23DS031",
+							"type": "text"
+						},
+						{
+							"key": "materialDifficulty",
+							"value": "Average",
+							"type": "text"
+						},
+						{
+							"key": "assignmentDifficulty",
+							"value": "Average",
+							"type": "text"
+						},
+						{
+							"key": "Assignment",
+							"type": "file",
+							"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/pexels-nataliya-vaitkevich-6532373.jpg"
+						},
+						{
+							"key": "Material",
+							"type": "file",
+							"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/work-life-balance.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/AddtoTopics",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"AddtoTopics"
+					],
+					"query": [
+						{
+							"key": "Name",
+							"value": "Week1",
+							"disabled": true
+						},
+						{
+							"key": "courseId",
+							"value": "23DS031",
+							"disabled": true
+						},
+						{
+							"key": "materialDifficulty",
+							"value": "Medium",
+							"disabled": true
+						},
+						{
+							"key": "assignmentDifficulty",
+							"value": "Medium",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "Name",
+									"value": "Week 1",
+									"type": "text"
+								},
+								{
+									"key": "courseId",
+									"value": "23DS031",
+									"type": "text"
+								},
+								{
+									"key": "materialDifficulty",
+									"value": "Average",
+									"type": "text"
+								},
+								{
+									"key": "assignmentDifficulty",
+									"value": "Average",
+									"type": "text"
+								},
+								{
+									"key": "Assignment",
+									"type": "file",
+									"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/pexels-nataliya-vaitkevich-6532373.jpg"
+								},
+								{
+									"key": "Material",
+									"type": "file",
+									"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/work-life-balance.jpg"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/api/AddtoTopics",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"api",
+								"AddtoTopics"
+							],
+							"query": [
+								{
+									"key": "Name",
+									"value": "Week1",
+									"disabled": true
+								},
+								{
+									"key": "courseId",
+									"value": "23DS031",
+									"disabled": true
+								},
+								{
+									"key": "materialDifficulty",
+									"value": "Medium",
+									"disabled": true
+								},
+								{
+									"key": "assignmentDifficulty",
+									"value": "Medium",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "222"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"de-Rw+J1RdPaZbDzoLNYL3fZNPT+js\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 11 Jun 2024 06:18:14 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Topic Updated\",\n    \"data\": {\n        \"_id\": \"6666b7e1c8e7b07c7639dee9\",\n        \"Assignment\": [\n            \"6666b7e9c8e7b07c7639deec\",\n            \"6667ec265193d888c3e5b658\"\n        ],\n        \"Material\": [\n            \"6666b7e8c8e7b07c7639deea\",\n            \"6667ec215193d888c3e5b656\"\n        ],\n        \"__v\": 1\n    }\n}"
+				}
+			]
+		},
+		{
+			"name": "api/GetTopics/teacher",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CourseId\": \"23DS031\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/getAllTopics/teacher"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/getTopics/teacher"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "340"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"154-TpVUO1+b+D7TgCLQVdzNbei9PB8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 10 Jun 2024 11:26:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Topics\",\n    \"data\": [\n        [\n            {\n                \"_id\": \"6666b7e1c8e7b07c7639dee9\",\n                \"Name\": \"Week 1\",\n                \"Assignment\": [\n                    {\n                        \"_id\": \"6666b7e9c8e7b07c7639deec\",\n                        \"URL\": \"pexels-nataliya-vaitkevich-6532373 (1).jpg\",\n                        \"Difficulty\": \"Average\",\n                        \"__v\": 0\n                    }\n                ],\n                \"Material\": [\n                    {\n                        \"_id\": \"6666b7e8c8e7b07c7639deea\",\n                        \"URL\": \"work-life-balance.jpg\",\n                        \"Difficulty\": \"Average\",\n                        \"__v\": 0\n                    }\n                ],\n                \"__v\": 0\n            }\n        ]\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "api/GetTopics/student",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CourseId\": \"23DS031\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/getAllTopics/student"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/getTopics/teacher"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "340"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"154-TpVUO1+b+D7TgCLQVdzNbei9PB8\""
+						},
+						{
+							"key": "Date",
+							"value": "Mon, 10 Jun 2024 11:26:18 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Topics\",\n    \"data\": [\n        [\n            {\n                \"_id\": \"6666b7e1c8e7b07c7639dee9\",\n                \"Name\": \"Week 1\",\n                \"Assignment\": [\n                    {\n                        \"_id\": \"6666b7e9c8e7b07c7639deec\",\n                        \"URL\": \"pexels-nataliya-vaitkevich-6532373 (1).jpg\",\n                        \"Difficulty\": \"Average\",\n                        \"__v\": 0\n                    }\n                ],\n                \"Material\": [\n                    {\n                        \"_id\": \"6666b7e8c8e7b07c7639deea\",\n                        \"URL\": \"work-life-balance.jpg\",\n                        \"Difficulty\": \"Average\",\n                        \"__v\": 0\n                    }\n                ],\n                \"__v\": 0\n            }\n        ]\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "api/deleteTopics",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS031\", \r\n    \"Name\": \"Week 1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/deleteTopics"
+			},
+			"response": []
+		},
+		{
+			"name": "api/submitAssignment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "AssignmentId",
+							"value": "666c0001f39e8762db675b1a",
+							"type": "text"
+						},
+						{
+							"key": "Submission",
+							"type": "file",
+							"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/caterpillar7262.jpg"
+						}
+					]
+				},
+				"url": "http://localhost:8080/api/submitAssignment"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "AssignmentId",
+									"value": "6669c685545ac34ee1ec304d",
+									"type": "text"
+								},
+								{
+									"key": "Submission",
+									"type": "file",
+									"src": "/C:/Users/Jeyadevan/Downloads/Gifs, Imgs/caterpillar7262.jpg"
+								}
+							]
+						},
+						"url": "http://localhost:8080/api/submitAssignment"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"37-kgp7xoNMesuxGCityH0oH10FM6A\""
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 12 Jun 2024 17:50:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Assignment Submitted\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "CreateQuiz",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"Name\": \"Week 1\",\r\n    \"timer\": 60,\r\n    \"thresholdTime\": 30,\r\n    \"questions\": [\r\n                          {\"question\": \"What is 2+2?\", \r\n                           \"questionType\": 0, \r\n                           \"options\": [\"1\", \"2\", \"3\", \"4\"], \r\n                           \"hasimg\": false, \r\n                           \"imgsrc\": \"\", \r\n                           \"Difficulty\": \"Easy\",\r\n                           \"point\": 1, \r\n                           \"answerOption\": 3, \r\n                           \"answerDescription\": \"\"}\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/createQuiz"
+			},
+			"response": [
+				{
+					"name": "Success",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"Name\": \"Week 1\",\r\n    \"timer\": 60,\r\n    \"thresholdTime\": 30,\r\n    \"questions\": [\r\n                          {\"question\": \"What is 2+2?\", \r\n                           \"questionType\": 0, \r\n                           \"options\": [\"1\", \"2\", \"3\", \"4\"], \r\n                           \"hasimg\": false, \r\n                           \"imgsrc\": \"\", \r\n                           \"Difficulty\": \"Easy\",\r\n                           \"point\": 1, \r\n                           \"answerOption\": 3, \r\n                           \"answerDescription\": \"\"}\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/createQuiz"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Access-Control-Allow-Credentials",
+							"value": "true"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "47"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2f-yvJm9KQyel7qF12cIGmC664GmHc\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 14 Jun 2024 08:46:17 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"msg\": \"Quiz Created\",\n    \"data\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "removeFromQuiz",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"courseId\": \"23DS031\",\r\n    \"Name\": \"Week 1\",\r\n    \"QuestionIds\": [\"666c34d432f426d47f9c872e\"]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/removeFromQuiz"
+			},
+			"response": []
+		}
+	]
+}
