@@ -81,7 +81,7 @@ export const sendVerificationLink = function (email, authCode) {
 		<body>
 		<p> Greetings from Techutsav'26 <p>
 		<p> Here is your verification link: 
-		${process.env.HOST.concat(":", process.env.SERVER_PORT, "/api/verify/?", "auth=", authCode)}
+		http://${process.env.HOST.concat(":", process.env.SERVER_PORT, "/api/verify/?", "auth=", authCode)}
 
 		<p>
 		Greetings<br>
@@ -183,7 +183,7 @@ export function standardResponse(statusCode, msg, data) {
 
 export const generateLoginToken = (data, secret) => {
   try {
-    const LoginToken = jwt.sign({ accessToken: data }, secret, {
+    const LoginToken = jwt.sign(data, secret, {
       expiresIn: "24h",
     });
     return LoginToken;
