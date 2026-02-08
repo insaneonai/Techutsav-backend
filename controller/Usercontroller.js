@@ -266,6 +266,8 @@ export const loginUser = async (req, res, next) => {
       const LoginToken = Authentication.LoginToken;
       const decodedToken = VerifyAuthToken(LoginToken, process.env.loginSecret);
       if (!decodedToken) {
+        res.clearCookie("Authentication", { path: "/", httpOnly: true });
+
         return res
           .status(403)
           .json(
