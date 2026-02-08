@@ -15,18 +15,18 @@ import QRCode from "qrcode";
 
 export const signupUser = async (req, res) => {
   try {
-    const { email, password, name, collegeId, phoneNo, year, department } =
+    const { email, password, name, collegeId, phoneNo, year, department, role } =
       req.body;
+
+    // Determine user role (default to participant, allow event_organizer)
+    const userRole = role && ["participant", "EventOrganizer","PaymentAdmin"].includes(role) ? role : "participant";
 
     // validate req.body
     if (
       !email ||
       !password ||
       !name ||
-      !collegeId ||
-      !phoneNo ||
-      !year ||
-      !department
+      !phoneNo
     ) {
       return res
         .status(400)
@@ -37,6 +37,8 @@ export const signupUser = async (req, res) => {
           ),
         );
     }
+
+    
 
     if (!emailRegexp.test(email)) {
       return res
@@ -66,11 +68,11 @@ export const signupUser = async (req, res) => {
       email: email,
       password: password,
       name: name,
-      collegeId: collegeId,
+      collegeId: collegeId ,
       phoneNo: phoneNo,
-      year: year,
+      year:  year ,
       department: department,
-      role: "participant",
+      role: userRole,
     });
 
     newUser.emailAuthCode = generateAuthToken(
