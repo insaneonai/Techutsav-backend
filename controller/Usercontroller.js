@@ -15,19 +15,25 @@ import QRCode from "qrcode";
 
 export const signupUser = async (req, res) => {
   try {
-    const { email, password, name, collegeId, phoneNo, year, department, role } =
-      req.body;
+    const {
+      email,
+      password,
+      name,
+      collegeId,
+      phoneNo,
+      year,
+      department,
+      role,
+    } = req.body;
 
     // Determine user role (default to participant, allow event_organizer)
-    const userRole = role && ["participant", "EventOrganizer","PaymentAdmin"].includes(role) ? role : "participant";
+    const userRole =
+      role && ["participant", "EventOrganizer", "PaymentAdmin"].includes(role)
+        ? role
+        : "participant";
 
     // validate req.body
-    if (
-      !email ||
-      !password ||
-      !name ||
-      !phoneNo
-    ) {
+    if (!email || !password || !name || !phoneNo) {
       return res
         .status(400)
         .json(
@@ -37,8 +43,6 @@ export const signupUser = async (req, res) => {
           ),
         );
     }
-
-    
 
     if (!emailRegexp.test(email)) {
       return res
@@ -68,9 +72,9 @@ export const signupUser = async (req, res) => {
       email: email,
       password: password,
       name: name,
-      collegeId: collegeId ,
+      collegeId: collegeId,
       phoneNo: phoneNo,
-      year:  year ,
+      year: year,
       department: department,
       role: userRole,
     });
@@ -416,8 +420,8 @@ export const forgotPassword = async (req, res) => {
       service: "gmail",
       host: "smtp.gmail.com",
       auth: {
-        user: "insaneonai@gmail.com",
-        pass: "roos zoeo gpcw rjrj",
+        user: "jeydev655@gmail.com",
+        pass: "msld tcqx uuia bqrx",
       },
     });
 
@@ -434,7 +438,7 @@ export const forgotPassword = async (req, res) => {
     </html>`;
 
     const message = {
-      from: "insaneonai@gmail.com",
+      from: "jeydev655@gmail.com",
       to: email,
       subject: "Password Reset Request - Techutsav'26",
       html: htmlMessage,

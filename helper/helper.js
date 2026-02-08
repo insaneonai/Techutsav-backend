@@ -72,8 +72,8 @@ export const sendVerificationLink = function (email, authCode) {
       service: "gmail",
       host: "smtp.gmail.com",
       auth: {
-        user: "insaneonai@gmail.com",
-        pass: "roos zoeo gpcw rjrj",
+        user: "jeydev655@gmail.com",
+        pass: "msld tcqx uuia bqrx",
       },
     });
 
@@ -91,7 +91,7 @@ export const sendVerificationLink = function (email, authCode) {
 		</html>
 		`;
     const message = {
-      from: "insaneonai@gmail.com",
+      from: "jeydev655@gmail.com",
       to: email,
       html: html_message,
     };
