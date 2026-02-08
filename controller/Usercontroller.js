@@ -291,6 +291,25 @@ export const loginUser = async (req, res, next) => {
   }
 };
 
+export const logoutUser = async (req, res) => {
+  try {
+    res.clearCookie("Authentication", { path: "/" });
+    return res
+      .status(200)
+      .json(standardResponse(200, "Logged out successfully", null));
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json(
+        standardResponse(
+          500,
+          "An unexpected error occurred while processing your request. Please try again later.",
+        ),
+      );
+  }
+};
+
 export const loginUserDefaultNext = async (req, res) => {
   try {
     // This function simply returns logged in user details, it is used as a default next function for loginUser middleware
@@ -325,7 +344,7 @@ export const getProfile = async (req, res) => {
 
     // Get paymentInfo for the user
 
-    const paymentInfo = await PaymentModel.findOne({
+    const paymentInfo = await PaymentModel.find({
       userId: userObject.userId,
     }).select("-_id -__v -userId");
 
@@ -335,7 +354,7 @@ export const getProfile = async (req, res) => {
       standardResponse(200, "User profile fetched successfully", {
         ...userObject,
         qrCode: qrCode,
-        paymentInfo: paymentInfo || null,
+        paymentInfo: paymentInfo.length > 0 ? paymentInfo : null,
       }),
     );
   } catch (error) {

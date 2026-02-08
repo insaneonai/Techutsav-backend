@@ -169,6 +169,7 @@ export const VerifyAuthToken = (token, secret) => {
     const isValid = jwt.verify(token, secret);
     return isValid;
   } catch (error) {
+    console.log("Error verifying auth token.", error);
     throw "Error Validating Auth Token.";
   }
 };

@@ -11,7 +11,31 @@ import {
   forgotPassword,
   resetPassword,
   getProfile,
+  logoutUser,
 } from "../controller/Usercontroller.js";
+import {
+  createEvent,
+  getAllEvents,
+  getMyEvents,
+  updateEvent,
+} from "../controller/Eventcontroller.js";
+import {
+  createCollege,
+  deleteCollege,
+  getAllColleges,
+  updateCollege,
+} from "../controller/Collegecontroller.js";
+import {
+  getRegisteredEvents,
+  registerEvent,
+} from "../controller/EventRegistrationController.js";
+import {
+  uploadPaymentInfo,
+  viewAllPayments,
+  updatePaymentStatus,
+} from "../controller/PaymentController.js";
+
+import { upload } from "../middleware/upload.js";
 
 const router = express.Router();
 
@@ -20,6 +44,8 @@ router.post("/user/signup", signupUser);
 router.post("/user/login", loginUser, loginUserDefaultNext);
 
 router.get("/user/profile", loginUser, getProfile);
+
+router.post("/user/logout", loginUser, logoutUser);
 
 router.get("/verify", verifyEmail);
 
