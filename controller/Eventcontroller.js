@@ -15,6 +15,8 @@ export const createEvent = async (req, res) => {
       orgContact,
       category,
       posterUrl,
+      date,
+      time,
       isTeamEvent,
       maxTeamSize,
     } = req.body;
@@ -66,10 +68,12 @@ export const createEvent = async (req, res) => {
       ruleDescription,
       orgContact,
       category,
+      date,
+      time,
       posterUrl,
       isTeamEvent: isTeamEvent || false,
       maxTeamSize: maxTeamSize || 1,
-      organizerId: req.userId,
+      organizerId: req.user.userId,
     });
 
     await newEvent.save();
@@ -144,7 +148,7 @@ export const updateEvent = async (req, res) => {
     }
 
     // Check if user is the organizer
-    if (event.organizerId.toString() !== req.userId) {
+    if (event.organizerId.toString() !== req.user.userId) {
       return res.status(403).json(
         standardResponse(
           403,
@@ -199,7 +203,7 @@ export const getMyEvents = async (req, res) => {
     }
 
     // Find events created by the current user
-    const myEvents = await EventModel.find({ organizerId: req.userId })
+    const myEvents = await EventModel.find({ organizerId: req.user.userId })
       .sort({ createdAt: -1 });
 
     if (!myEvents || myEvents.length === 0) {

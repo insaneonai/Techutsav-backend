@@ -3,6 +3,7 @@
 import { standardResponse } from "../helper/helper.js";
 import { EventModel } from "../models/EventModel.js";
 import { UserEventRegisterModel } from "../models/UserEventRegisterModel.js";
+import { PaymentModel } from "../models/PaymentModel.js";
 
 export const registerEvent = async (req, res) => {
   try {
@@ -23,12 +24,12 @@ export const registerEvent = async (req, res) => {
 
     // check payment status if event is paid (this part can be implemented later when payment integration is done)
     
-    /*const paymentInfo = await PaymentModel.findOne({ userId: req.user.userId , passType: "event"});
-    if (paymentInfo && paymentInfo.status !== "approved") {
+    const paymentInfo = await PaymentModel.findOne({ userId: req.user.userId , passType: "EVENT"});
+    if (paymentInfo && paymentInfo.status !== "APPROVED") {
       return res.status(402).json(
         standardResponse(402, "Payment required: Please complete the payment to register for this event")
       );
-    }*/
+    }
 
       
     // Find the event
@@ -57,7 +58,7 @@ export const registerEvent = async (req, res) => {
       eventId: eventId,
       userId: req.user.userId,
       teamId : null,
-      status: "registered",
+      status: "Registered",
     });
 
     await registration.save();
