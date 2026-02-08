@@ -13,7 +13,7 @@ app.use(cookieParser());
 app.use(express.json());
 app.use(
   cors({
-    origin: [`http://${process.env.HOST}:3030`],
+    origin: "*",
     methods: ["POST", "GET", "PATCH", "DELETE"],
     credentials: true,
   }),
