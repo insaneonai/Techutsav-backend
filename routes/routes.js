@@ -10,14 +10,16 @@ import {
   loginUserDefaultNext,
   forgotPassword,
   resetPassword,
+  getProfile,
 } from "../controller/Usercontroller.js";
-//import {PostQuestion, GetAllQuestion} from '../controller/QAcontroller.js';
 
 const router = express.Router();
 
-router.post("/signup/user", signupUser);
+router.post("/user/signup", signupUser);
 
-router.post("/login/user", loginUser, loginUserDefaultNext);
+router.post("/user/login", loginUser, loginUserDefaultNext);
+
+router.get("/user/profile", loginUser, getProfile);
 
 router.get("/verify", verifyEmail);
 

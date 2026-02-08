@@ -11,6 +11,7 @@ import {
   authEmailHasher,
 } from "../helper/helper.js";
 import { createTransport } from "nodemailer";
+import QRCode from "qrcode";
 
 export const signupUser = async (req, res) => {
   try {
@@ -298,6 +299,36 @@ export const loginUserDefaultNext = async (req, res) => {
     return res
       .status(200)
       .json(standardResponse(200, "Logged In successfully", userObject));
+  } catch (error) {
+    console.log(error);
+    return res
+      .status(500)
+      .json(
+        standardResponse(
+          500,
+          "An unexpected error occurred while processing your request. Please try again later.",
+        ),
+      );
+  }
+};
+
+export const getProfile = async (req, res) => {
+  try {
+    // This is a protected route to get user details, it requires loginUser middleware to be executed before it
+
+    const userObject = req.user;
+
+    // generate qr code for user id and name
+    const qrData = `${userObject.userId} - ${userObject.name}`;
+
+    const qrCode = await QRCode.toDataURL(qrData);
+
+    return res.status(200).json(
+      standardResponse(200, "User profile fetched successfully", {
+        ...userObject,
+        qrCode: qrCode,
+      }),
+    );
   } catch (error) {
     console.log(error);
     return res
