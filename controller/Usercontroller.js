@@ -1,5 +1,6 @@
 import { UserModel } from "../models/Usermodel.js";
 import { CollegeModel } from "../models/CollegeModel.js";
+import { PaymentModel } from "../models/PaymentModel.js";
 import { compare } from "bcrypt";
 import {
   standardResponse,
@@ -322,10 +323,19 @@ export const getProfile = async (req, res) => {
 
     const qrCode = await QRCode.toDataURL(qrData);
 
+    // Get paymentInfo for the user
+
+    const paymentInfo = await PaymentModel.findOne({
+      userId: userObject.userId,
+    }).select("-_id -__v -userId");
+
+    // Include paymentInfo in the response
+
     return res.status(200).json(
       standardResponse(200, "User profile fetched successfully", {
         ...userObject,
         qrCode: qrCode,
+        paymentInfo: paymentInfo || null,
       }),
     );
   } catch (error) {
