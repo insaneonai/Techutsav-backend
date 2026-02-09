@@ -39,7 +39,7 @@ export const createEvent = async (req, res) => {
     }
 
     // Validate category enum
-    if (!["Online", "Offline"].includes(category)) {
+    if (!["Tech", "NonTech"].includes(category)) {
       return res.status(400).json(
         standardResponse(
           400,
